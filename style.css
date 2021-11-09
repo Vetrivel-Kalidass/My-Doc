@@ -1,9 +1,27 @@
+:root {
+    --black-shade: #222;
+    --grey-shade: #757575;
+    --yellow: #F8BE12;
+    --white: #fff;
+    --white-shade: #eee;
+    --bg-color: #323232;
+    --font-color: var(--white);
+}
+
+html, body {
+    background-color: var(--black-shade) !important;
+    color: var(--font-color) !important;
+}
+
 body {
     padding-bottom: 30px;
     position: relative;
     min-height: 100%;
   }
   
+  button, a {
+      box-shadow: none !important;
+  }
   a {
     transition: background 0.2s, color 0.2s;
   }
@@ -27,7 +45,7 @@ body {
     margin-left: -250px;
     overflow-y: auto;
     overflow-x: hidden;
-    background: #222;
+    background: var(--black-shade);
     transition: all 0.5s ease;
   }
   
@@ -46,35 +64,63 @@ body {
     margin: 0;
     font-weight: 600;
     font-size: 24px;
-    color: #fff;
+    color: var(--white);
   }
   
   .sidebar-nav {
-    position: absolute;
-    top: 75px;
-    width: 250px;
-    margin: 0;
+    margin: 0px;
+    margin-bottom: 5px;
     padding: 0;
     list-style: none;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+    overflow: hidden;
+    background-color: var(--yellow);
   }
-  .sidebar-nav > li {
+  #sidebarNav {
+    position: absolute;
+    top: 75px;
+    width: 242px;
+    margin: 0;
+    padding: 0;
+  }
+  #sidebarNav * {
+    transition: all .3s ease-in-out;
+  }
+  .sidebar-nav > li, #sidebarNav h2 {
     text-indent: 10px;
     line-height: 42px;
   }
-  .sidebar-nav > li a {
+  #sidebarNav h2 > button {
+    color: var(--white) !important;
+    padding: 8px 10px 8px 20px;
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+  }
+
+  .sidebar-nav > li a, #sidebarNav h2 > button {
     display: block;
     text-decoration: none;
-    color: #757575;
+    color: var(--white);
     font-weight: 600;
     font-size: 18px;
   }
-  .sidebar-nav > li > a:hover,
+  #sidebarNav h2 > button.collapsed {
+    background-color: transparent !important;
+    border-radius: 8px !important;
+  }
+  .sidebar-nav > li > a:hover, 
   .sidebar-nav > li.active > a {
     text-decoration: none;
-    color: #fff;
-    background: #F8BE12;
+    background: var(--black-shade) !important;
+    margin: 0px 5px 5px 5px;
+    border-radius: 8px;
+    transition: all .3s ease-in-out;
   }
-  .sidebar-nav > li > a i.fa {
+  #sidebarNav h2 > button:hover, #sidebarNav h2 > button {
+    background: var(--yellow) !important;
+  }
+  .sidebar-nav > li > a i.fa, #sidebarNav h2 > button i {
     font-size: 24px;
     width: 60px;
   }
@@ -90,27 +136,72 @@ body {
   }
   #navbar-wrapper .navbar {
     border-width: 0 0 0 0;
-    background-color: #eee;
+    background-color: var(--black-shade);
     font-size: 24px;
     margin-bottom: 0;
     border-radius: 0;
   }
   #navbar-wrapper .navbar a {
-    color: #757575;
+    color: var(--grey-shade);
   }
   #navbar-wrapper .navbar a:hover {
-    color: #F8BE12;
+    color: var(--yellow);
   }
   
   #content-wrapper {
     width: 100%;
     position: absolute;
-    padding: 15px;
-    top: 100px;
+    padding: 20px;
+    top: 52px !important;
   }
   #wrapper.toggled #content-wrapper {
     position: absolute;
     margin-right: -250px;
+  }
+
+  section.content {
+	  background-color: var(--bg-color);
+	  padding: 10px;
+	  border-radius: 12px;
+	  margin-bottom: 16px;
+  }
+  code {
+	  padding: 10px;
+	  background-color: var(--black-shade) !important;
+	  color: var(--white) !important;
+	  border-radius: 8px;
+	  margin-bottom: 16px !important;
+	  padding-right: 50px;
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  code > button {
+      width: 30px !important;
+      height: 30px !important;
+      padding: 4px !important;
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      color: var(--white) !important;
+  }
+
+  section.content ul > li {
+	  margin-bottom: 12px !important;
+  }
+
+  .scroll-content::-webkit-scrollbar-track {
+    background: var(--bg-color) !important;
+  }
+  .scroll-content::-webkit-scrollbar-thumb {
+    background: var(--black-shade) !important;
+    cursor: pointer;
+    border-radius: .15625rem;
+  }
+  .scroll-content::-webkit-scrollbar {
+    width: 4px!important;
+    height: 4px!important;
   }
   
   @media (min-width: 992px) {
